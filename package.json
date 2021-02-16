@@ -8,7 +8,8 @@
     "serve": "npx webpack-dev-server --open --mode development --port 8081",
     "dev": "npx ts-node-dev --respawn",
     "watch": "npx webpack --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +19,8 @@
     "@types/webpack-dev-server": "^3.11.0",
     "html-loader": "^1.2.1",
     "html-webpack-plugin": "^4.3.0",
+    "onchange": "^7.1.0",
+    "prettier": "^2.2.1",
     "ts-loader": "^8.0.2",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.58",
