@@ -1,3 +1,5 @@
-let hello: string = "hello";
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-alert(hello);
+of(1,2,3).pipe(map(x => x + '!!!')).subscribe(console.log);
+
