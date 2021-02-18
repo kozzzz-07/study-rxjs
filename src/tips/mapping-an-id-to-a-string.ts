@@ -5,13 +5,16 @@ interface Product {
   id: string;
   name: string;
   price: number;
-  category?: string;
 }
 
 interface ProductCategory {
   id: string;
   name: string;
   description?: string;
+}
+
+interface ProductsWithCategory extends Product {
+  category: string;
 }
 
 const products: Product[] = [
@@ -31,10 +34,13 @@ const productsWithCategory$ = combineLatest([
   of(productCategoies), // ルックアップストリーム
 ]).pipe(
   map(([products, categoies]) =>
-    products.map((product) => ({
-      ...product,
-      category: categoies.find((c) => product.id === c.id)?.name, // 文字列をルックアップ
-    }))
+    products.map(
+      (product) =>
+        ({
+          ...product,
+          category: categoies.find((c) => product.id === c.id)?.name, // 文字列をルックアップ
+        } as ProductsWithCategory)
+    )
   )
 );
 
