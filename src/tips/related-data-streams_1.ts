@@ -1,11 +1,10 @@
 import { map, shareReplay, tap } from "rxjs/operators";
+import { BehaviorSubject, combineLatest, Observable, of } from "rxjs";
 
 // Get It All Pattern
 // 関連するデータセットから全てのデータを取得し、表示の必要に応じてデータセット内の関連するアイテムを検索する
 
 // id:1の商品が選択して、それに関連するサプライヤーの一覧を取得する っていう想定
-
-import { BehaviorSubject, combineLatest, Observable, of } from "rxjs";
 
 const get = function get<T = any>(arg: any): Observable<T> {
   return of(arg);
